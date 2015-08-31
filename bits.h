@@ -1,0 +1,12 @@
+int bitAnd(int, int);
+int test_bitAnd(int, int);
+int fitsBits(int, int);
+int test_fitsBits(int, int);
+int isPositive(int);
+int test_isPositive(int);
+int greatestBitPos(int);
+int test_greatestBitPos(int);
+unsigned float_neg(unsigned);
+unsigned test_float_neg(unsigned);
+unsigned float_twice(unsigned);
+unsigned test_float_twice(unsigned);
