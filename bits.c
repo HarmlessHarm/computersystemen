@@ -179,7 +179,8 @@ int fitsBits(int x, int n) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  return 2;
+  int result = ~(x >> 31)&1;
+  return result;
 }
 /* 
  * greatestBitPos - return a mask that marks the position of the
