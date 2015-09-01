@@ -24,9 +24,9 @@ clean:
 	rm -f *.o btest fshow ishow *~
 
 handin:
-        mkdir $(TEAM)-$VERSION
+	mkdir $(TEAM)-$VERSION
 	install bits.c $(TEAM)-$VERSION
 	tar -zcvf $(TEAM)-$VERSION.tgz $(TEAM)-$VERSION/*
-        install  $(TEAM)-$VERSION.tgz /opt/pract/cs_ai/datalab/handin2012
+	install  $(TEAM)-$VERSION.tgz /opt/pract/cs_ai/datalab/handin2012
 
 

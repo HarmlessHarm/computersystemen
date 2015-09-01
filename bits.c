@@ -1,7 +1,7 @@
 /* 
  * CS:APP Data Lab 
  * 
- * <Please put your name and userid here>
+ * <Micha de Groot ********, Harm Manders 10677186>
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
@@ -156,7 +156,8 @@ int lab_id = 22;
  *   Rating: 1
  */
 int bitAnd(int x, int y) {
-  return 2;
+  int z = ~(~x|~y);
+  return z;
 }
 /* 
  * fitsBits - return 1 if x can be represented as an 
