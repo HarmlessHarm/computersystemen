@@ -169,7 +169,13 @@ int bitAnd(int x, int y) {
  *   Rating: 2
  */
 int fitsBits(int x, int n) {
-  return 2;
+  int cut, testX;
+  cut = 32 + ~n + 1;
+  //cut x
+  testX = (x << cut) >> cut;
+  // compare testX with X
+  // is true when x == testX
+  return !(testX^x);
 }
 /* 
  * isPositive - return 1 if x > 0, return 0 otherwise 
@@ -179,7 +185,9 @@ int fitsBits(int x, int n) {
  *   Rating: 3
  */
 int isPositive(int x) {
-  int result = ~(x >> 31)&1;
+  int positive = (x & (1 << 31)) >> 31;
+  int notX = !x;
+  int result = !(positive | notX);
   return result;
 }
 /* 
@@ -191,7 +199,150 @@ int isPositive(int x) {
  *   Rating: 4 
  */
 int greatestBitPos(int x) {
-  return 2;
+  
+
+  int diff, sign;
+
+  int biggestMask = 0x00000000;
+  int mask = x & 0x00000001;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000002;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000004;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000008;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000010;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000020;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000040;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000080;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000100;
+
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000200;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000400;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00000800;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00001000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00002000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00004000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00008000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00010000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00020000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00040000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00080000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00100000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00200000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00400000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x00800000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x01000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x02000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x04000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x08000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x10000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x20000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x40000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+  mask = x & 0x80000000;
+  diff = mask - biggestMask;  
+  sign = (diff >> 31) & 0x1;  
+  biggestMask = mask - sign * diff;
+
+  return biggestMask;
 }
 /* 
  * float_neg - Return bit-level equivalent of expression -f for
@@ -205,7 +356,18 @@ int greatestBitPos(int x) {
  *   Rating: 2
  */
 unsigned float_neg(unsigned uf) {
- return 2;
+  unsigned result;
+  unsigned test = !(uf & 0x80000000);
+  if (test) {
+    // positief
+    result = uf | 0x80000000;
+  }
+  else {
+    // negatief
+    result = uf & 0x4fffffff;
+  }
+
+ return result;
 }
 /* 
  * float_twice - Return bit-level equivalent of expression 2*f for
